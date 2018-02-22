@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+            table.toto tr > *:first-child {
+                font-weight: bold;
+                color: navy;
+                background-color: lime;
+            }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <table class="toto">
+        <tr>
+            <td>Id</td>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <td>Created at</td>
+            <td>{{ entity.createdAt|date() }}</td>
+        </tr>
+        <tr>
+            <td>Updated at</td>
+            <td>{{ entity.updatedAt|date('Y-m-d h:m:s') }}</td>
+        </tr>
+        <tr>
+            <td>Stock</td>
+            <td>{{ entity.stock|number_format(0, ',', '.') }} unit{{ entity.stock > 1 ? 's' : '' }}</td>
+        </tr>
+        <tr>
+            <td>Enabled</td>
+            <td>{{ entity.enabled ? 'Yes' : 'No' }}</td>
+        </tr>
+    </table>
+{% endblock %}

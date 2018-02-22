@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% set entity = form.vars.data %}
+
+{% block title %}
+    {% if entity.id %}
+        Edit of {{ entity.name }}
+    {% else %}
+        New mug
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ form(form) }}
+{% endblock %}
